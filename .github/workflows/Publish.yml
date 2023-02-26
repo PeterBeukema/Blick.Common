@@ -1,0 +1,42 @@
+name: Publish NuGet Package(s)
+
+on:
+  push:
+    tags:
+    - "v[0-9]+.[0-9]+.[0-9]+"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:    
+    - name: Checkout
+      uses: actions/checkout@v2
+      
+    - name: Verify
+      run: |
+        git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+        git branch --remote --contains | grep origin/main
+        
+    - name: Version
+      run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
+      
+    - name: Add NuGet
+      run: dotnet nuget add source --username PeterBeukema --password ${{ secrets.NUGET_READ_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/peterbeukema/index.json"
+      
+    - name: Restore packages
+      run: dotnet restore Source
+      
+    - name: Build
+      run: dotnet build Source/Blick.Common.sln --configuration Release /p:Version=${VERSION}
+      
+    - name: Test
+      run: dotnet test Source --configuration Release /p:Version=${VERSION} --no-build
+      
+    - name: Pack    
+      run: |
+        dotnet pack Source/Blick.Common.WebApi/Blick.Common.WebApi.csproj --configuration Release --no-build --output . /p:Version=${VERSION}
+      
+    - name: Push
+      run: |
+        dotnet nuget push Blick.Common.WebApi.${VERSION}.nupkg --source https://nuget.pkg.github.com/peterbeukema/index.json --api-key ${{ secrets.NUGET_WRITE_TOKEN }} --skip-duplicate
