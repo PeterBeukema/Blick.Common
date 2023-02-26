@@ -6,6 +6,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{402261C7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blick.Common.Tests", "Blick.Common.Tests\Blick.Common.Tests.csproj", "{F632C87C-1905-44F6-9CAD-E2D3E54DEC85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blick.Common.Store", "Blick.Common.Store\Blick.Common.Store.csproj", "{F998E663-EEEA-40B5-85AB-C3A50D6363D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blick.Common.Store.Abstractions", "Blick.Common.Store.Abstractions\Blick.Common.Store.Abstractions.csproj", "{C3B4A2FA-95EC-4982-9175-06140AA26E02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +24,14 @@ Global
 		{F632C87C-1905-44F6-9CAD-E2D3E54DEC85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F632C87C-1905-44F6-9CAD-E2D3E54DEC85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F632C87C-1905-44F6-9CAD-E2D3E54DEC85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F998E663-EEEA-40B5-85AB-C3A50D6363D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F998E663-EEEA-40B5-85AB-C3A50D6363D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F998E663-EEEA-40B5-85AB-C3A50D6363D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F998E663-EEEA-40B5-85AB-C3A50D6363D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3B4A2FA-95EC-4982-9175-06140AA26E02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3B4A2FA-95EC-4982-9175-06140AA26E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3B4A2FA-95EC-4982-9175-06140AA26E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3B4A2FA-95EC-4982-9175-06140AA26E02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F632C87C-1905-44F6-9CAD-E2D3E54DEC85} = {402261C7-655E-4501-81A0-E5531E430C9B}
