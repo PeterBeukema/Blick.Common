@@ -1,4 +1,5 @@
 ﻿using System;
+using Blick.Common.Store.Abstractions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
