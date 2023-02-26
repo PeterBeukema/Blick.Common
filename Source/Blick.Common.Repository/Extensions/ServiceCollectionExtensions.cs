@@ -1,17 +1,16 @@
 ﻿using System;
-using Blick.Common.Store.Abstractions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Blick.Common.Store.Extensions;
+namespace Blick.Common.Repository.Extensions;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddStore<TService, TImplementation>(
+    public static IServiceCollection AddRepository<TService, TImplementation>(
         this IServiceCollection serviceCollection,
         ServiceLifetime serviceLifetime = ServiceLifetime.Scoped)
-        where TImplementation : Store<TImplementation>, TService
+        where TImplementation : Abstractions.Repository<TImplementation>, TService
     {
         serviceCollection.AddDbContext<TService, TImplementation>(ConfigureFor<TImplementation>, serviceLifetime);
 

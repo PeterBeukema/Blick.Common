@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
-        <PackageId>Blick.Common.Store</PackageId>
+        <PackageId>Blick.Common.Repository.Abstractions</PackageId>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/PeterBeukema</RepositoryUrl>
     </PropertyGroup>
@@ -17,16 +17,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <FrameworkReference Include="Microsoft.AspNetCore.App" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.3" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Blick.Common.Store.Abstractions\Blick.Common.Store.Abstractions.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Blick.Common.Store.Abstractions.Models;
+namespace Blick.Common.Repository.Abstractions.Models;
 
 public abstract class Entity
 {
