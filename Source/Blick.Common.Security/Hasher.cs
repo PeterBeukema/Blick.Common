@@ -7,38 +7,39 @@ namespace Blick.Common.Security;
 
 public class Hasher : IHasher
 {
+    private readonly IEncryptor encryptor;
+    
     private const int SaltSize = 32;
     private const int HashSize = 32;
     private const int Iterations = 10000;
 
-    public (string Hash, string Salt) Hash(string value)
+    public Hasher(IEncryptor encryptor)
     {
-        var saltBytes = new byte[SaltSize];
+        this.encryptor = encryptor;
+    }
+
+    public (byte[] Hash, byte[] Salt) Hash(string value)
+    {
+        var salt = new byte[SaltSize];
 
         using var randomNumberGenerator = RandomNumberGenerator.Create();
         
-        randomNumberGenerator.GetBytes(saltBytes);
+        randomNumberGenerator.GetBytes(salt);
 
-        using var deriveBytes = new Rfc2898DeriveBytes(value, saltBytes, Iterations, HashAlgorithmName.SHA256);
+        using var deriveBytes = new Rfc2898DeriveBytes(value, salt, Iterations, HashAlgorithmName.SHA256);
 
-        var hashBytes = deriveBytes.GetBytes(HashSize);
-
-        var hash = Convert.ToBase64String(hashBytes);
-        var salt = Convert.ToBase64String(saltBytes);
+        var hash = deriveBytes.GetBytes(HashSize);
         
         return (hash, salt);
     }
 
-    public bool Matches(string value, string hash, string salt)
+    public bool AreEqual(string value, byte[] hashedValue, byte[] salt)
     {
-        var saltBytes = Convert.FromBase64String(salt);
-
-        using var deriveBytes = new Rfc2898DeriveBytes(value, saltBytes, Iterations, HashAlgorithmName.SHA256);
+        using var deriveBytes = new Rfc2898DeriveBytes(value, salt, Iterations, HashAlgorithmName.SHA256);
 
         var hashBytes = deriveBytes.GetBytes(HashSize);
-        var hashToCheck = Convert.FromBase64String(hash);
 
-        return SlowEquals(hashBytes, hashToCheck);
+        return SlowEquals(hashBytes, hashedValue);
     }
 
     private static bool SlowEquals(IReadOnlyList<byte> hash, IReadOnlyList<byte> hashToCheck)
