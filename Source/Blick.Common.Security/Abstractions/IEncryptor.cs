@@ -2,7 +2,7 @@
 
 public interface IEncryptor
 {
-    public byte[] Encrypt(byte[] value);
+    public byte[] Encrypt(byte[] value, string key, string initializationVector);
 
-    public byte[] Decrypt(byte[] value);
+    public byte[] Decrypt(byte[] value, string key, string initializationVector);
 }

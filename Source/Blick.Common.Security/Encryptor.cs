@@ -6,15 +6,12 @@ namespace Blick.Common.Security;
 
 public class Encryptor : IEncryptor
 {
-    private const string Key = "";
-    private const string InitializationVector = "";
-    
-    public byte[] Encrypt(byte[] value)
+    public byte[] Encrypt(byte[] value, string key, string initializationVector)
     {
         using var algorithm = Aes.Create();
 
-        algorithm.Key = Encoding.UTF8.GetBytes(Key);
-        algorithm.IV = Encoding.UTF8.GetBytes(InitializationVector);
+        algorithm.Key = Encoding.UTF8.GetBytes(key);
+        algorithm.IV = Encoding.UTF8.GetBytes(initializationVector);
 
         using var encryptor = algorithm.CreateEncryptor(algorithm.Key, algorithm.IV);
 
@@ -23,12 +20,12 @@ public class Encryptor : IEncryptor
         return encryptedSalt;
     }
 
-    public byte[] Decrypt(byte[] value)
+    public byte[] Decrypt(byte[] value, string key, string initializationVector)
     {
         using var algorithm = Aes.Create();
 
-        algorithm.Key = Encoding.UTF8.GetBytes(Key);
-        algorithm.IV = Encoding.UTF8.GetBytes(InitializationVector);
+        algorithm.Key = Encoding.UTF8.GetBytes(key);
+        algorithm.IV = Encoding.UTF8.GetBytes(initializationVector);
 
         using var decryptor = algorithm.CreateDecryptor(algorithm.Key, algorithm.IV);
 
