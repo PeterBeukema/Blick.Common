@@ -10,6 +10,7 @@ public class Encryptor : IEncryptor
     {
         using var algorithm = Aes.Create();
 
+        
         algorithm.Key = Encoding.UTF8.GetBytes(key);
         algorithm.IV = Encoding.UTF8.GetBytes(initializationVector);
 

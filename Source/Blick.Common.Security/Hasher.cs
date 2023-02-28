@@ -7,16 +7,9 @@ namespace Blick.Common.Security;
 
 public class Hasher : IHasher
 {
-    private readonly IEncryptor encryptor;
-    
     private const int SaltSize = 32;
     private const int HashSize = 32;
     private const int Iterations = 10000;
-
-    public Hasher(IEncryptor encryptor)
-    {
-        this.encryptor = encryptor;
-    }
 
     public (byte[] Hash, byte[] Salt) Hash(string value)
     {
