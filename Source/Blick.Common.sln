@@ -12,8 +12,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blick.Common.Security", "Bl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blick.Common.Security.Tests", "Blick.Common.Security.Tests\Blick.Common.Security.Tests.csproj", "{E976EB56-279E-4DE4-8F8F-1ECCE8D78C93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blick.Common.TestApi", "Blick.Common.TestApi\Blick.Common.TestApi.csproj", "{B9B67EFA-ADF7-4A08-AF6D-A62B6DEB3311}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,14 +38,9 @@ Global
 		{E976EB56-279E-4DE4-8F8F-1ECCE8D78C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E976EB56-279E-4DE4-8F8F-1ECCE8D78C93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E976EB56-279E-4DE4-8F8F-1ECCE8D78C93}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B9B67EFA-ADF7-4A08-AF6D-A62B6DEB3311}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B9B67EFA-ADF7-4A08-AF6D-A62B6DEB3311}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B9B67EFA-ADF7-4A08-AF6D-A62B6DEB3311}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B9B67EFA-ADF7-4A08-AF6D-A62B6DEB3311}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F632C87C-1905-44F6-9CAD-E2D3E54DEC85} = {402261C7-655E-4501-81A0-E5531E430C9B}
 		{E976EB56-279E-4DE4-8F8F-1ECCE8D78C93} = {402261C7-655E-4501-81A0-E5531E430C9B}
-		{B9B67EFA-ADF7-4A08-AF6D-A62B6DEB3311} = {402261C7-655E-4501-81A0-E5531E430C9B}
 	EndGlobalSection
 EndGlobal
