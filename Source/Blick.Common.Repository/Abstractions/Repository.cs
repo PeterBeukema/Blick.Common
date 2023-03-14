@@ -7,5 +7,8 @@ public abstract class Repository<TRepository> : DbContext
 {
     protected Repository(DbContextOptions<TRepository> options) : base(options) { }
 
-    public virtual void Initialize() { /* Deliberately left empty for override */ }
+    public virtual void Initialize()
+    {
+        /* Deliberately left empty for override */
+    }
 }

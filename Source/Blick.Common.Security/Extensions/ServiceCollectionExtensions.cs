@@ -13,7 +13,9 @@ public static class ServiceCollectionExtensions
         serviceCollection.AddSingleton<IEncryptor, Encryptor>();
         serviceCollection.AddSingleton<IPasswordHasher, PasswordHasher>();
 
-        serviceCollection.Configure<PasswordHasherOptions>(configuration.GetSection(PasswordHasherOptions.ConfigurationSectionName));
+        var passwordHasherOptionsSection = configuration.GetSection(PasswordHasherOptions.ConfigurationSectionName);
+        
+        serviceCollection.Configure<PasswordHasherOptions>(passwordHasherOptionsSection);
         
         return serviceCollection;
     }
